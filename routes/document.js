@@ -242,7 +242,19 @@ router.route('/genericTable')
 
 
   res.send('generic Paragraph section has been added');
-})
+});
 
+
+router.route('/lastPage')
+.get( function (req, res, body){
+  res.send('Getting the lastPage  to implement');
+})
+.post( function (req, res, body){
+  var pObj = docx.createP ();
+  pObj.addImage ( path.resolve(__dirname, req.body.image),  req.body.options );
+
+
+  res.json({message : "Last page added"});
+});
 
 module.exports = router;
